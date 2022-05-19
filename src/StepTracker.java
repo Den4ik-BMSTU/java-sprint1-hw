@@ -1,7 +1,7 @@
-
 public class StepTracker {
-    int dayOfYear[] = new int[360];
-    Converter converter =new Converter();
+    int dayOfYear[] = new int[360]; //Прочитал ещё про многомерные массивы, можно им сделать
+    // ничего страшного что сделаной по другому, ни как в рекомендациях?
+    Converter converter = new Converter();
 
     /* MonthData[] monthToData;
 
@@ -13,7 +13,7 @@ public class StepTracker {
      }
 
      class MonthData {
-         int[] days = new int[30];
+
          // Заполните класс самостоятельно
      }*/
     void addStep(int month, int day, int step) {
@@ -27,8 +27,8 @@ public class StepTracker {
 
     void stepPrint(int month) {
         int firstDay = (month - 1) * 30;
-        for (int i = 0; i < 31; i++) {
-            System.out.println((i + 1) + " день: " + dayOfYear[firstDay]);
+        for (int i = 0; i < 30; i++) {
+            System.out.println((i + 1) + " день: " + dayOfYear[firstDay]+", ");
             firstDay = firstDay + 1;
         }
     }
@@ -58,22 +58,27 @@ public class StepTracker {
         System.out.println("Больше всего шагов за месяц: " + maxStep);
     }
 
-    void midlSteps(int steps){
-        int midl=steps/30;
+    void midlSteps(int steps) {
+        int midl = steps / 30;
         System.out.println("Среднее число шагов:" + midl);
 
     }
-   void bestSeries(int norma, int month){
-       int firstDay = (month - 1) * 30;
-       int lastDay = month * 30;
-       int maxSeries = 0;
-       for (int i = firstDay; i <= lastDay; i++){
-           if (dayOfYear[i]>norma){
-               if (i-(i-1)==1){
-               maxSeries=maxSeries+1;}
-           }
-           }
-       System.out.println("Максимальная серия:"+maxSeries+"дней");
-   }
-  }
 
+    void bestSeries(int norma, int month) {
+        int firstDay = (month - 1) * 30;
+        int lastDay = month * 30;
+        int seria = 0;
+        int maxSeries = 0;
+        for (int i = firstDay; i <= lastDay; i++) {
+            if (dayOfYear[i] > norma) {
+                seria = seria + 1;
+            } else {
+                if (seria > maxSeries) {
+                    maxSeries = seria;
+                    seria=0;
+                }
+            }
+            }
+        System.out.println("Максимальная серия:" + maxSeries + "дней");
+    }
+}
