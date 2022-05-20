@@ -7,18 +7,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int stepByDay = 10000;
         System.out.println("Для здоровья вы должны проходить минимум "+stepByDay+" шагов в день");
-        String[] months = {"Январь","Февраль","Март","Апрель","Май", "Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
+
         StepTracker stepTracker = new StepTracker();
 
-
+        // обаботка разных случаев
         while (true) {
             printMenu();
             int command = scanner.nextInt();
-            // обаботка разных случаев
-            if (command==1){//Ввести количество шагов за определённый день
-                System.out.println("Сначала выберите месяц: ");
-                for (int i = 0; i < months.length; i++) {
-                    System.out.println((i + 1) + " - " + months[i]);}
+             if (command==1){//Ввести количество шагов за определённый день
+                stepTracker.printMonth();
                 int monthNumber=scanner.nextInt();
                 System.out.println("Укажите день месяца(1-30): ");
                 int dayNumber=scanner.nextInt();
@@ -27,9 +24,7 @@ public class Main {
                 stepTracker.addStep(monthNumber, dayNumber, stepNumber);
             }
             else if (command==2){//Напечатать статистику за определённый месяц
-                System.out.println("Сначала выберите месяц: ");
-                for (int i = 0; i < months.length; i++) {
-                    System.out.println((i + 1) + " - " + months[i]);}
+                stepTracker.printMonth();
                 int chooseMonth=scanner.nextInt();
                 stepTracker.stepPrint(chooseMonth);
                 stepTracker.maxOfMonth(chooseMonth);

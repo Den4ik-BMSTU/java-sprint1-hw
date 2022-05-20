@@ -1,23 +1,8 @@
 public class StepTracker {
-    int dayOfYear[] = new int[360]; //Прочитал ещё про многомерные массивы, можно им сделать
-    // ничего страшного что сделаной по другому, ни как в рекомендациях?
+    int dayOfYear[] = new int[360];
     Converter converter = new Converter();
-
-    /* MonthData[] monthToData;
-
-     public StepTracker() {
-         monthToData = new MonthData[12];
-         for (int i = 0; i < monthToData.length; i++) {
-             monthToData[i] = new MonthData();
-         }
-     }
-
-     class MonthData {
-
-         // Заполните класс самостоятельно
-     }*/
     void addStep(int month, int day, int step) {
-        int numberDay = (month - 1) * 30 + day;
+        int numberDay = (month - 1) * 30 + day-1;
         if (step > 0) {
             dayOfYear[numberDay] = step;
         } else {
@@ -80,5 +65,11 @@ public class StepTracker {
             }
             }
         System.out.println("Максимальная серия:" + maxSeries + "дней");
+    }
+    void printMonth() {
+        String[] months = {"Январь","Февраль","Март","Апрель","Май", "Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
+        System.out.println("Сначала выберите месяц: ");
+        for (int i = 0; i < months.length; i++) {
+            System.out.println((i + 1) + " - " + months[i]);}
     }
 }
