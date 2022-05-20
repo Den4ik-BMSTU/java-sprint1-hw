@@ -13,7 +13,7 @@ public class StepTracker {
     void stepPrint(int month) {
         int firstDay = (month - 1) * 30;
         for (int i = 0; i < 30; i++) {
-            System.out.println((i + 1) + " день: " + dayOfYear[firstDay]+", ");
+            System.out.println((i + 1) + " день: " + dayOfYear[firstDay]+";");
             firstDay = firstDay + 1;
         }
     }
@@ -21,7 +21,7 @@ public class StepTracker {
     void stepByMonth(int month) {
         int firstDay = (month - 1) * 30;
         int steps = 0;
-        for (int i = 0; i < 31; i++) {
+        for (int i = 0; i < 30; i++) {
             steps = steps + dayOfYear[firstDay];
             firstDay = firstDay + 1;
         }
@@ -35,7 +35,7 @@ public class StepTracker {
         int firstDay = (month - 1) * 30;
         int lastDay = month * 30;
         int maxStep = 0;
-        for (int i = firstDay; i <= lastDay; i++) {
+        for (int i = firstDay; i < lastDay; i++) {
             if (dayOfYear[i] > maxStep) {
                 maxStep = dayOfYear[i];
             }
@@ -49,18 +49,18 @@ public class StepTracker {
 
     }
 
-    void bestSeries(int norma, int month) {
+    void bestSeries(int norma, int month) {//Поправил 29, 30 декабря учитывает
         int firstDay = (month - 1) * 30;
         int lastDay = month * 30;
         int seria = 0;
         int maxSeries = 0;
-        for (int i = firstDay; i <= lastDay; i++) {
-            if (dayOfYear[i] > norma) {
+        for (int i = firstDay; i < lastDay; i++) {
+            if (dayOfYear[i] >= norma) {
                 seria = seria + 1;
-            } else {
                 if (seria > maxSeries) {
                     maxSeries = seria;
-                    seria=0;
+            } else {
+                seria=0;
                 }
             }
             }

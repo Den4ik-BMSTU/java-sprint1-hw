@@ -25,7 +25,7 @@ public class Main {
             }
             else if (command==2){//Напечатать статистику за определённый месяц
                 stepTracker.printMonth();
-                int chooseMonth=scanner.nextInt();
+                int chooseMonth=scanner.nextInt();//Поправил, за пределы не выходит
                 stepTracker.stepPrint(chooseMonth);
                 stepTracker.maxOfMonth(chooseMonth);
                 stepTracker.stepByMonth(chooseMonth);
