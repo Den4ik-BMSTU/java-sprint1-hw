@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {  //честно пытался понять что рекомендуют в теории, не получилось
-        // и я забил и взял за основу то что делали в тренажёре
+    public static void main(String[] args) {  
         System.out.println("Моя первая программа - счётчик шагов");
         Scanner scanner = new Scanner(System.in);
         int stepByDay = 10000;

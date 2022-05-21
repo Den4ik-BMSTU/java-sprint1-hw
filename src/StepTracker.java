@@ -59,12 +59,12 @@ public class StepTracker {
                 seria = seria + 1;
                 if (seria > maxSeries) {
                     maxSeries = seria;
-            } else {
-                seria=0;
+                }
+            }else {
+                seria=0;//как скобка не в том месте может всё испортить=)
                 }
             }
-            }
-        System.out.println("Максимальная серия:" + maxSeries + "дней");
+            System.out.println("Максимальная серия:" + maxSeries + "дней");
     }
     void printMonth() {
         String[] months = {"Январь","Февраль","Март","Апрель","Май", "Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
